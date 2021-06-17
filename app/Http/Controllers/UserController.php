@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class userController extends Controller
-{   
+{
     /**
      * Display a listing of the resource.
      *

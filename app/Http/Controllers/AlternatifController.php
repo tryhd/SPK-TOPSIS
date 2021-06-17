@@ -31,9 +31,9 @@ class AlternatifController extends Controller
             ->select('pemain.*')
             ->get();*/
         $data=DB::select("SELECT DISTINCT p.id,p.nama,p.nama_tim,p.posisi,p.foto,a.id_pemain
-        FROM alternatif a 
+        FROM alternatif a
         JOIN kriteria k
-        JOIN 
+        JOIN
         pemain p
         WHERE a.id_pemain=p.id AND a.id_kriteria=k.id
         ");
@@ -77,7 +77,7 @@ class AlternatifController extends Controller
         Session::flash('type', 'success');
         }
         return redirect()->route('alternatif.index');
-        
+
     }
 
     /**
