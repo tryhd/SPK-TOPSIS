@@ -118,7 +118,7 @@ class userController extends Controller
        }
        $data_user->name=$request->name;
        $data_user->email=$request->email;
-       $data_user->password=$request->password;
+       $data_user->password=Hash::make($request->password);
        $data_user->role=$request->role;
        $data_user->phone=$request->phone;
        $data_user->foto=$nama_file;

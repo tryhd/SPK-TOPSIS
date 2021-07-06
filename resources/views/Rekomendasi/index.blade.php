@@ -43,7 +43,7 @@
                   <td>{{ $tmp[$i][4] }}</td>
                   <td>{{ $tmp[$i][3] }}</td>
                   <td>{{ $tmp[$i][2] }}</td>
-                </tr>    
+                </tr>
                 @endfor
               </table>
             </div>
@@ -54,4 +54,4 @@
       </div><br>
     </section>
     <!-- /.content -->
-@endsection   
+@endsection

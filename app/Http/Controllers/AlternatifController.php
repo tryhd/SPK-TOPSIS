@@ -65,18 +65,27 @@ class AlternatifController extends Controller
         $kriterias=Kriteria::get();
         $this->validate($request,[
             'pemain'=>'required',
+            'str_replace'=>'required'
         ]);
-        foreach($kriterias as $k){
-        $data=new Alternatif;
-        $nil=str_replace('','',$k->id);
-        $data->id_pemain=$request->input('pemain');
-        $data->id_kriteria=$k->id;
-        $data->nilai=$request->$nil;
-        $data->save();
-        Session::flash('message', 'Data '. $data->getPemain->nama .' berhasil ditambahkan sebagai alternatif!');
-        Session::flash('type', 'success');
+        $checkIfExists = Alternatif::where('id_pemain', '=', $request->pemain)->first();
+        if(!$checkIfExists){
+            foreach($kriterias as $k){
+                $data=new Alternatif;
+                $nil=str_replace('','',$k->id);
+                $data->id_pemain=$request->input('pemain');
+                $data->id_kriteria=$k->id;
+                $data->nilai=$request->$nil;
+                $data->save();
+                Session::flash('message', 'Data '. $data->getPemain->nama .' berhasil ditambahkan sebagai alternatif!');
+                Session::flash('type', 'success');
+                }
+                return redirect()->route('alternatif.index');
+        }else{
+            Session::flash('message', 'Gagal menambahkan data karena sudah ada');
+            Session::flash('type', 'danger');
+            return redirect()->back();
         }
-        return redirect()->route('alternatif.index');
+
 
     }
 

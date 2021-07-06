@@ -6,7 +6,7 @@
         @if(Auth::user()->role=='Admin')
         <small>Selamat Datang Admin</small>
         @else
-        <small>Selamat Datang Penanggung Jawab</small>  
+        <small>Selamat Datang Penanggung Jawab</small>
         @endif
       </h1>
       <ol class="breadcrumb">
@@ -112,10 +112,9 @@
           @if (Auth::User()->role=='Penanggung Jawab')
           <div class="box">
             <div id="chartrekomendasi"></div>
-          </div> 
+          </div>
           @endif
-          
-        </div>  
+        </div>
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
@@ -171,4 +170,4 @@ Highcharts.chart('chartrekomendasi', {
 });
 @endforeach
 </script>
-@endsection 
+@endsection
